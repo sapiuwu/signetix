@@ -1,26 +1,43 @@
 {
   "name": "signetix",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "description": "Transform text into signature images (SVG, BMP, PNG) with a hexagonal, port-driven core.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
   "files": [
     "dist"
   ],
+  "sideEffects": false,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsup"
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test \"test/*.test.ts\"",
+    "demo": "node index.ts",
+    "font:embed": "node scripts/embed-font.mjs"
   },
   "author": "Wahyu Krisna Aji",
   "license": "ISC",
-  "dependencies": {
-    "canvas": "^3.2.3",
-    "signetix": "^1.0.0"
-  },
   "devDependencies": {
     "@types/node": "^25.6.0",
+    "@types/opentype.js": "^1.3.10",
     "tsup": "^8.5.1",
     "typescript": "^6.0.2"
+  },
+  "dependencies": {
+    "opentype.js": "^1.3.4"
   }
 }

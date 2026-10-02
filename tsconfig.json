@@ -4,6 +4,7 @@
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "strict": true,
+    "noEmit": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "ignoreDeprecations": "6.0",
@@ -11,5 +12,5 @@
     "rewriteRelativeImportExtensions": true,
     "types": ["node"]
   },
-  "include": ["src/**/*.ts", "*.ts"]
+  "include": ["src/**/*.ts", "test/**/*.ts", "*.ts"]
 }
