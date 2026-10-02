@@ -27,7 +27,8 @@
     "typecheck": "tsc --noEmit",
     "test": "node --test \"test/*.test.ts\"",
     "demo": "node index.ts",
-    "font:embed": "node scripts/embed-font.mjs"
+    "font:embed": "node scripts/embed-font.mjs",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
   },
   "author": "Wahyu Krisna Aji",
   "license": "ISC",
